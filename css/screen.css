@@ -29,49 +29,50 @@ a:hover { color: #77AADD; }
 }
 
 
-/* make keyframes that tell the start state and the end state of our object */
-@-webkit-keyframes intro {
-  from {
-    opacity:0;
-    -webkit-transform: translateY(20px);
-  }
-  to {
-    opacity:1;
-    -webkit-transform: translateY(0);
-  }
+
+@-webkit-keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
 }
-@-moz-keyframes intro {
-  from {
-    opacity:0;
-    -moz-transform: translateY(20px);
-  }
-  to {
-    opacity:1;
-    -moz-transform: translateY(0);
-  }
+@-moz-keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
 }
-@keyframes intro {
-  from {
-    opacity:0;
-    transform: translateY(20px);
-  }
-  to { 
-    opacity:1;
-    transform: translateY(0);
-  }
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
 }
- 
+
+@-webkit-keyframes bloop {
+  0%   { -webkit-transform: scale(0.1); }
+  50%  { -webkit-transform: scale(1.0); }
+  70%  { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1.0); }
+}
+@-moz-keyframes bloop {
+  0%   { -webkit-transform: scale(0.1); }
+  50%  { -webkit-transform: scale(1.0); }
+  70%  { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1.0); }
+}
+@keyframes bloop {
+  0%   { -webkit-transform: scale(0.1); }
+  50%  { -webkit-transform: scale(1.0); }
+  70%  { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1.0); }
+}
+
 .intro {
-    opacity:0;
-    -webkit-animation:intro ease-out 1;
-    -moz-animation:intro ease-out 1;
-    animation:intro ease-out 1;
- 
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
- 
-    -webkit-animation-duration:1s;
-    -moz-animation-duration:1s;
-    animation-duration:1s;
+  opacity:0;
+  -webkit-animation: fadeIn ease-out 1, bloop ease-in 1;
+  -moz-animation:    fadeIn ease-out 1, bloop ease-in 1;
+  animation:         fadeIn ease-out 1, bloop ease-out 1;
+
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode:    forwards;
+  animation-fill-mode          forwards;
+
+  -webkit-animation-duration: .75s;
+  -moz-animation-duration:    .75s;
+  animation-duration:         .75s;
 }
